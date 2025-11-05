@@ -45,3 +45,9 @@ node_modules
 next
 dist
 build
+node_modules
+.env
+.DS_Store
+next
+dist
+build
