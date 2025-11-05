@@ -3,6 +3,53 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Color System */
+  --ink: #173256;
+  --ink-2: #2b4a73;
+  --lavender-600: #6e75aa;
+  --lavender-500: #7582ba;
+  --lavender-400: #837a9b;
+  --lavender-300: #9e94a8;
+  --lavender-200: #9da3ce;
+  --lavender-100: #dfc7e2;
+  --cta-pink: #f7c2d0;
+  --highlight-yellow: #eedc68;
+  --white: #ffffff;
+  
+  /* Section 3 - Quiz */
+  --quiz-orange: #cf7a54;
+  --quiz-lavender: #d9b0e0;
+  
+  /* Section 4 - Freebies */
+  --freebies-bg: #e5cde5;
+  --badge-yellow: #eed05a;
+  
+  /* Section 5 - Podcast */
+  --podcast-bg: #e5cde5;
+  
+  /* Section 6 - Blog */
+  --blog-bg: #7582ba;
+  
+  /* Section 7 - Course Library */
+  --card-bg: #ffffff;
+  --tab-1: #d97543;
+  --tab-2: #6e75aa;
+  --tab-3: #eedc68;
+  --tab-4: #dfc7e2;
+  --tab-5: #7aa6a0;
+  --tab-6: #9e94a8;
+  --badge-text: #fff;
+  --shadow: 0 14px 34px rgba(23,50,86,0.18);
+  
+  /* Section 8 - Pinterest Promo */
+  --s8-orange: #d97543;
+  
+  /* Footer */
+  --footer-cream: #eee7dd;
+  --footer-orange: #d97543;
+  --shadow-soft: 0 10px 24px rgba(23,50,86,.12);
+  --btn-border: 1px solid rgba(23,50,86,.18);
 }
 
 @theme inline {
@@ -12,15 +59,152 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Rotating Animation for the Seal */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-slow {
+  animation: rotate 8s linear infinite;
+}
+
+/* Color Cycling Animation for Hero Text */
+@keyframes colorCycle {
+  0% {
+    color: #ffffff;
+  }
+  33% {
+    color: #ffd700;
+  }
+  66% {
+    color: #4dd9ff;
+  }
+  100% {
+    color: #ffffff;
+  }
+}
+
+.color-cycle {
+  animation: colorCycle 15s ease-in-out infinite;
+}
+
+/* Hero Section Fade In Blur Animations */
+@keyframes fadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInBlurTitle {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.9;
+    filter: blur(0px);
+    transform: scale(1);
+  }
+}
+
+.fade-in-blur-text {
+  animation: fadeInBlur 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in-blur-title {
+  animation: fadeInBlurTitle 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in-blur-image {
+  animation: fadeInBlur 1.5s ease-out 1.5s forwards;
+  opacity: 0;
+}
+
+/* Smooth transitions */
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar completely */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* For IE and Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+/* Animated Gradient Background for Podcast Section */
+@keyframes gradientWobble {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(
+    90deg,
+    #E4EDBE 0%,
+    #CFE9F1 25%,
+    #E4EDBE 50%,
+    #CFE9F1 75%,
+    #E4EDBE 100%
+  );
+  background-size: 200% 100%;
+  animation: gradientWobble 12s ease-in-out infinite;
+}
+
+/* Animated Gradient Background for Blog Section */
+.animated-gradient-blog-bg {
+  background: linear-gradient(
+    90deg,
+    #7B00D2 0%,
+    #1200B4 25%,
+    #7B00D2 50%,
+    #1200B4 75%,
+    #7B00D2 100%
+  );
+  background-size: 200% 100%;
+  animation: gradientWobble 12s ease-in-out infinite;
 }
